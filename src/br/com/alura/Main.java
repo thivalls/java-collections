@@ -1,16 +1,15 @@
 package br.com.alura;
 
 import br.com.alura.modelos.Aula;
+import br.com.alura.modelos.Curso;
 
 import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
 public class Main {
     public static void main(String[] args) {
-        Aula a1 = new Aula("b", 40);
-        Aula a2 = new Aula("f", 35);
-        Aula a3 = new Aula("a", 36);
+        Aula a1 = new Aula("Aprendendo ArrayList", 40);
+        Aula a2 = new Aula("Ordenando Itens de um Array", 35);
+        Aula a3 = new Aula("Aprendendo mais sobre Comparable", 36);
 
         ArrayList<Aula> aulas = new ArrayList<>();
 
@@ -18,14 +17,29 @@ public class Main {
         aulas.add(a2);
         aulas.add(a3);
 
-        // estes dois métodos não exigem que a classe implemente um Comparable pois o Comparator já implementa
-        // aulas.sort(Comparator.comparing(Aula::getTempo));
-        // Collections.sort(aulas, Comparator.comparing(Aula::getTempo));
+        Curso curso = new Curso("Curso de Collections da Alura", "Thiago Valls");
 
-        // Utilizando a classe COLLECTIONS e aplicando o método sort, sem passar o um Comparator, temos que impmementar o Comparable na class alvo
-        // e informar com qual class T ela deve ser comparável
-        Collections.sort(aulas);
 
-        System.out.println(aulas);
+        /** Adiciona um por um */
+        // curso.add(new Aula("Aprendendo ArrayList", 40));
+        // curso.add(new Aula("Ordenando Itens de um Array", 35));
+        // curso.add(new Aula("Aprendendo mais sobre Comparable", 36));
+
+        /**
+         * Adiciona grupo de aulas
+         */
+        curso.addAll(aulas);
+
+        /**
+         * A diferença entre ArrayList e LinkedList está mais ligada a regra de negócio da aplicação
+         * 1. Se precisamos remover ou incluir elementos de uma lista seria mais performático utilizar o linked list
+         * pois ele trabalhar com alteração de ponteiros e isso acaba sendo mais fácil, uma vez que o ArrayList iria trocar a posição de elemento
+         * por elemento para fazer esta manipulação. E pensando em muitos dados isso não seria performático.
+         * 2. Se precisarmos pegar um único elemento de uma lista para mostrar já seria melhor utilizarmos o ArrayList porque nós podemos informar o índice
+         * que o elemento se encontra e mostrar diretamente em qualquer lugar do código e de forma muito mais rápido, já o LinkedList se quisermos mostrar
+         * o elemento da posição 1000 ele não mostra diretamente ele teria que passar por todos os demais.
+         */
+
+        System.out.println(curso);
     }
 }

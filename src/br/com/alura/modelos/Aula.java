@@ -19,10 +19,10 @@ public class Aula implements Comparable<Aula> {
 
     @Override
     public String toString() {
-        return "{\"Aula\":{"
-                + "\"aula\":\"" + aula + "\""
-                + ", \"tempo\":\"" + tempo + "\""
-                + "}}";
+        return "Aula{" +
+                "aula='" + aula + '\'' +
+                ", tempo=" + tempo +
+                '}';
     }
 
     @Override
