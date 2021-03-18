@@ -1,16 +1,16 @@
 package br.com.alura.modelos;
 
 public class Aula implements Comparable<Aula> {
-    private String aula;
+    private String titulo;
     private int tempo;
 
-    public Aula(String aula, int tempo) {
-        this.aula = aula;
+    public Aula(String titulo, int tempo) {
+        this.titulo = titulo;
         this.tempo = tempo;
     }
 
-    public String getAula() {
-        return aula;
+    public String getTitulo() {
+        return titulo;
     }
 
     public int getTempo() {
@@ -20,13 +20,13 @@ public class Aula implements Comparable<Aula> {
     @Override
     public String toString() {
         return "Aula{" +
-                "aula='" + aula + '\'' +
+                "aula='" + titulo + '\'' +
                 ", tempo=" + tempo +
                 '}';
     }
 
     @Override
     public int compareTo(Aula toCompare) {
-        return this.aula.compareTo(toCompare.aula);
+        return this.titulo.compareTo(toCompare.titulo);
     }
 }
