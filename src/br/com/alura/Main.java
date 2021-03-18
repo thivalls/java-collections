@@ -77,8 +77,7 @@ public class Main {
 
         Iterator<Aluno> iterator = curso.getAlunos().iterator();
         while (iterator.hasNext()) {
-            Aluno next = iterator.next();
-            System.out.println(next.getName());
+            System.out.println(iterator.next().getName());
         }
     }
 }
