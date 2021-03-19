@@ -35,5 +35,10 @@ public class TesteMap {
         curso.getMatriculados().values().forEach(item -> {
             System.out.println(item);
         });
+
+        // Listando keys e values associoativamente
+        curso.getMatriculados().entrySet().forEach(item -> {
+            System.out.println(item);
+        });
     }
 }
