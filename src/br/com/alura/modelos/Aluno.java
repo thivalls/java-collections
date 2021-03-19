@@ -39,4 +39,12 @@ public class Aluno implements Comparable<Aluno>{
     public int compareTo(Aluno compare) {
         return name.compareTo(compare.name);
     }
+
+    @Override
+    public String toString() {
+        return "Aluno{" +
+                "name='" + name + '\'' +
+                ", matricula=" + matricula +
+                '}';
+    }
 }

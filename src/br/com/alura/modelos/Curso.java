@@ -2,10 +2,13 @@ package br.com.alura.modelos;
 
 import java.time.LocalDateTime;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.NoSuchElementException;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -16,6 +19,7 @@ public class Curso {
     private Set<Aluno> alunos = new TreeSet<>();
     private LocalDateTime createdAt;
     private int duracao;
+    private Map<Integer, Aluno> matriculados = new HashMap<>();
 
     public Curso(String nome, String instrutor) {
         this.nome = nome;
@@ -47,6 +51,10 @@ public class Curso {
         return Collections.synchronizedSet(alunos);
     }
 
+    public Map<Integer, Aluno> getMatriculados() {
+        return matriculados;
+    }
+
     /**
      * SETTERS
      */
@@ -61,6 +69,7 @@ public class Curso {
 
     public void matricula(Aluno aluno) {
         this.alunos.add(aluno);
+        this.matriculados.put(aluno.getMatricula(), aluno);
     }
 
     /**
@@ -73,12 +82,7 @@ public class Curso {
     //     }
     //     return tempoTotal;
     // }
-
     public int getDuracaoCurso() {
-        int tempoTotal = 0;
-        for (Aula aula: aulas) {
-            tempoTotal += aula.getTempo();
-        }
         return aulas.stream().mapToInt(Aula::getTempo).sum();
     }
 
@@ -87,10 +91,14 @@ public class Curso {
      */
     @Override
     public String toString() {
-        return "Curso: " + this.getNome() +  " \' Aulas: " + aulas + "\' Tempo do Curso " + this.getDuracaoCurso() + " Alunos: " + alunos;
+        return "Curso: " + this.getNome() + " \' Aulas: " + aulas + "\' Tempo do Curso " + this.getDuracaoCurso() + " Alunos: " + alunos;
     }
 
     public boolean verificaMatricula(Aluno a1) {
         return alunos.contains(a1);
+    }
+
+    public Aluno buscaMatriculado(int matricula) {
+        return matriculados.get(matricula);
     }
 }
