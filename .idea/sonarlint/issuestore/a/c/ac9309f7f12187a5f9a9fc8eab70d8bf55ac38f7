@@ -1,9 +1,0 @@
-
-]	java:S125"<This block of commented-out lines of code should be removed.(É³Ä’øÿÿÿÿ8È¬‚„„/
-]	java:S125$"<This block of commented-out lines of code should be removed.(œ‘âÍşÿÿÿÿ8ü…„„/
-Z	java:S106!"9Replace this use of System.out or System.err by a logger.(² íãùÿÿÿÿ8«Ù‰„„/
-M
-java:S1172"+Remove this unused method parameter "args".(À»Áùÿÿÿÿ8ÿñÊ„„/
-W
-java:S1118":Add a private constructor to hide the implicit public one.(Æ‘Ù8ÿñÊ„„/
-]	java:S125"<This block of commented-out lines of code should be removed.(æåìÙúÿÿÿÿ8”Î÷ƒ„/
